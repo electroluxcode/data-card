@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang='zh'>
+<head>
+  <meta charset='UTF-8' />
+  <meta content='width=device-width, initial-scale=1' name='viewport' />
+  <title>网站数据卡片</title>
+  <meta
+    content='在 README 中展示你在知乎，GitHub，B 站，LeetCode，掘金，CSDN，牛客等网站的数据，也可用于服务状态监控. Show your LeetCode & GitHub stats in GitHub Profile.'
+    name='description'>
+  <meta content='#ffffff' name='theme-color' />
+  <link href='/static/bulma.min.css' rel='stylesheet'>
+  <link href='/static/main.css' rel='stylesheet'>
+  <script src='/static/main.js'></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src='https://www.googletagmanager.com/gtag/js?id=G-F04WN7D6NF'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-F04WN7D6NF');
+</script>
+<body>
+<div>
+  <nav aria-label='main navigation' class='navbar nav-shadow' role='navigation'>
+    <div class='container'>
+      <div class='navbar-brand'>
+        <a class='navbar-item is-size-5' href='/' style='font-weight: bold'>
+          网站数据卡片
+        </a>
+        <a aria-expanded='false' aria-label='menu' class='navbar-burger burger' data-target='mainNavbar'
+           role='button'>
+          <span aria-hidden='true'></span>
+          <span aria-hidden='true'></span>
+          <span aria-hidden='true'></span>
+        </a>
+      </div>
+      <div class='navbar-menu' id='mainNavbar'>
+        <div class='navbar-start'>
+          <a class='navbar-item' href='/'> 首页 </a>
+          <a class='navbar-item' href='https://iamazing.cn/page/stats-cards'
+             target='_blank'> 帮助 </a>
+          <a class='navbar-item' href='/reward.html'> 赞赏 </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
+  </script>
+  <div class='container'>
+    <div class='normal-container'>
+      <div class='notification'>
+        点击<strong><a href='https://iamazing.cn/page/stats-cards'
+                     target='_blank'>帮助</a></strong>查看具体的用法，本页面仅供展示。
+        项目地址：<a href='https://github.com/songquanpeng/stats-cards'
+                target='_blank'>测试</a>
+        <br />
+      </div>
+      <div class='card'>
+        <header class='card-header'>
+          <p class='card-header-title'>
+            网站数据展示
+          </p>
+        </header>
+        <div class='card-content'>
+          <div class='content'>
+            <div class='columns'>
+              <div class='column'>
+                <img alt='GitHub' src='/api/github?username=yilaikesi&theme=tokyonight&lang=zh-CN'>
+              </div>
+              <div class='column'>
+                <img alt='知乎' src='/api/zhihu?username=excited&lang=zh-CN&theme=tokyonight'>
+              </div>
+            </div>
+            <div class='columns'>
+              <div class='column'>
+                <img alt='LeetCode' src='/api/leetcode/?username=electrolux&lang=zh-CN&theme=tokyonight'>
+              </div>
+              <div class='column'>
+                <img alt='力扣' src='/api/leetcode/?username=electrolux&cn=true&lang=zh-CN&theme=tokyonight'>
+              </div>
+            </div>
+            <div class='columns'>
+              <div class='column'>
+                <img alt='B 站' src='/api/bilibili/?id=286773126&lang=zh-CN&theme=tokyonight'>
+              </div>
+              <div class='column'>
+                <img alt='掘金' src='/api/juejin?id=3004311888208296&lang=zh-CN&theme=tokyonight'>
+              </div>
+            </div>
+            <div class='columns'>
+              <div class='column'>
+                <img alt='CSDN' src='/api/csdn?id=vczh&lang=zh-CN&theme=tokyonight'>
+              </div>
+              <div class='column'>
+                <img alt='牛客' src='/api/nowcoder?id=6484283&lang=zh-CN&theme=tokyonight'>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class='footer' style='background-color: white'>
+    <div class='content has-text-centered'>
+      <p>
+        <a href='https://github.com/songquanpeng/stats-cards'>网站数据卡片</a> 由 <a href='https://github.com/songquanpeng'>JustSong</a>
+        构建，源代码遵循
+        <a href='https://opensource.org/licenses/mit-license.php'>MIT</a> 协议
+      </p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,43 @@
+{
+    "name": "data-card",
+    "version": "0.1.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node ./app.js",
+        "test": "node ./test.js",
+        "dev": "concurrently \"npm run dev:server\" \"npm run dev:compile\"",
+        "dev:compile": "tsc --project ./ --watch ",
+        "dev:server": "nodemon ./app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/songquanpeng/readme-stats.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/songquanpeng/readme-stats/issues"
+    },
+    "homepage": "https://github.com/songquanpeng/readme-stats#readme",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "cheerio": "^1.0.0-rc.5",
+        "concurrently": "^8.2.1",
+        "express": "^4.17.1",
+        "form-data": "^4.0.0",
+        "lru-cache": "^7.14.1",
+        "serve-static": "^1.15.0",
+        "typescript": "^5.2.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7",
+        "prettier": "^2.2.1"
+    },
+    "prettier": {
+        "singleQuote": true
+    },
+    "engines": {
+        "node": "16.x"
+    }
+}
