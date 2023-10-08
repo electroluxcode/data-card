@@ -4,11 +4,11 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-        "start": "node ./app.js",
+        "start": "node ./dist/app.js",
         "test": "node ./test.js",
         "dev": "concurrently \"npm run dev:server\" \"npm run dev:compile\"",
-        "dev:compile": "tsc --project ./ --watch ",
-        "dev:server": "nodemon ./app.js"
+        "dev:compile": "tsc --outDir ./dist  --project ./ --watch ",
+        "dev:server": "nodemon ./dist/app.js"
     },
     "repository": {
         "type": "git",

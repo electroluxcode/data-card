@@ -68,7 +68,7 @@ function RenderCard(items: RenderItemType[], theme = 'light') {
   }
   </style>
 
-  <rect data-testid='card-bg' x='0.5' y='0.5' rx='4.5' height='99%' stroke='#e4e2e2' width='466' 
+  <rect  data-testid='card-bg' x='0.5' y='0.5' rx='4.5' height='99%' stroke='#e4e2e2' width='466' 
     stroke-opacity='0' />
 
   ${title_compose}
