@@ -14,7 +14,7 @@ app.use('/api/test', function(req, res) {
 });
 
 import juejin from "./api/Juejin.js"
-// http://localhost:3000/api/juejin?id=3004311888208296&
+// http://localhost:3000/api/juejin?id=3004311888208296& 
 app.use('/api/juejin', juejin);
 
 
@@ -26,7 +26,7 @@ app.use(
 
 const server = http.createServer(app);
 
-server.listen(3000);
+server.listen(3002);
 
 module.exports = app;
 

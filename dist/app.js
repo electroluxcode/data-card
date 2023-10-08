@@ -16,11 +16,11 @@ app.use('/api/test', function (req, res) {
     });
 });
 const Juejin_js_1 = __importDefault(require("./api/Juejin.js"));
-// http://localhost:3000/api/juejin?id=3004311888208296&
+// http://localhost:3000/api/juejin?id=3004311888208296& 
 app.use('/api/juejin', Juejin_js_1.default);
 app.use(serveStatic(path.join(__dirname, 'public'), {
     maxAge: 1000,
 }));
 const server = http.createServer(app);
-server.listen(3000);
+server.listen(3002);
 module.exports = app;

@@ -1089,6 +1089,50 @@ echo "整个过程花费 $formatted_duration"
 
 
 
+## 1.4 vercel 部署示例
+
+https://vercel.com/new   注册一下，这个需要有的时候需要翻墙，各位看一下
+
+
+
+```shell
+npm i vercel -g
+vercel login # 登录一下账号
+
+```
+
+
+
+根目录下面新建 vercel.json ，写入如下代码。
+
+```json
+{
+  "version": 2,
+  "name": "data-card",
+  "builds": [
+    {
+      "src": "dist/app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/app.js"
+    }
+  ]
+}
+```
+
+
+
+```shell
+# 在你的项目下面执行,如果没有报错。并且地址能够访问直接推送就好了
+vercel dev  
+# 推送
+vercel 
+```
+
 
 
 

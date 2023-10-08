@@ -4,9 +4,9 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-        "start": "node ./dist/app.js",
+        "start": "concurrently \"npm run dev:server\" \"npm run dev:compile\"",
         "test": "node ./test.js",
-        "dev": "concurrently \"npm run dev:server\" \"npm run dev:compile\"",
+        "dev": "node ./dist/app.js ",
         "dev:compile": "tsc --outDir ./dist  --project ./ --watch ",
         "dev:server": "nodemon ./dist/app.js"
     },
@@ -21,6 +21,7 @@
     },
     "homepage": "https://github.com/songquanpeng/readme-stats#readme",
     "dependencies": {
+        "@vercel/node": "^3.0.7",
         "axios": "^0.21.1",
         "cheerio": "^1.0.0-rc.5",
         "concurrently": "^8.2.1",
