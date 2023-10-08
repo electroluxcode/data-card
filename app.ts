@@ -2,7 +2,8 @@ const express = require('express');
 const http = require('http');
 const serveStatic = require('serve-static');
 const app = express();
-const { cacheTime } = require('./common/cache');
+
+import {cacheTime} from "./common/cache"
 const path = require('path');;
 
 app.use('/api/test', function(req, res) {
@@ -12,15 +13,14 @@ app.use('/api/test', function(req, res) {
     })
 });
 
-
-const juejin = require('./api/juejin');
+import juejin from "./api/Juejin.js"
 // http://localhost:3000/api/juejin?id=3004311888208296&
 app.use('/api/juejin', juejin);
 
 
 app.use(
   serveStatic(path.join(__dirname, 'public'), {
-    maxAge: cacheTime * 1000,
+    maxAge: 1000,
   })
 );
 

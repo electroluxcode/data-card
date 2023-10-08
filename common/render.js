@@ -1,51 +1,33 @@
-import { getTheme } from '../common/theme.js';
-import { getIcon, IconKey } from '../common/icon';
-
-interface RenderItemType {
-  type: "title" | "textarea" | "shape",
-  id: string,
-  translate_y: string | number,
-  title: string,
-  text: any,
-  icon: IconKey
-}
-
-
-interface constructTypeItem {
-  translate_y: string | number,
-  title: string,
-  text: string,
-  type: "title" | "textarea" | "shape",
-  icon: IconKey,
-  color?: string,
-}
-
-
-function render(items: RenderItemType[], theme = 'light') {
-  let {BackgroundColor,IconColor,TextColor} = getTheme("default")
-  if(getTheme(theme)){
-   BackgroundColor = getTheme(theme).BackgroundColor;
-   TextColor = getTheme(theme).TextColor;
-   IconColor = getTheme(theme).IconColor;
-  }
-  let title_compose = '';
-  let shape_compose = '';
-  let textarea_compose = '';
-  for (let i = 0; i < items.length; i++) {
-    items[i].id = `key_${i}`;
-    switch (items[i].type) {
-      case 'title':
-        title_compose += renderType(items[i])
-        break;
-      case "shape":
-        shape_compose += renderType(items[i])
-        break;
-      case "textarea":
-        textarea_compose += renderType(items[i])
-        break;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RenderCard = void 0;
+const theme_js_1 = require("./theme.js");
+const icon_js_1 = require("./icon.js");
+function RenderCard(items, theme = 'light') {
+    let { BackgroundColor, IconColor, TextColor } = (0, theme_js_1.getTheme)("default");
+    if ((0, theme_js_1.getTheme)(theme)) {
+        BackgroundColor = (0, theme_js_1.getTheme)(theme).BackgroundColor;
+        TextColor = (0, theme_js_1.getTheme)(theme).TextColor;
+        IconColor = (0, theme_js_1.getTheme)(theme).IconColor;
     }
-  }
-  return `
+    let title_compose = '';
+    let shape_compose = '';
+    let textarea_compose = '';
+    for (let i = 0; i < items.length; i++) {
+        items[i].id = `key_${i}`;
+        switch (items[i].type) {
+            case 'title':
+                title_compose += renderType(items[i]);
+                break;
+            case "shape":
+                shape_compose += renderType(items[i]);
+                break;
+            case "textarea":
+                textarea_compose += renderType(items[i]);
+                break;
+        }
+    }
+    return `
   <svg xmlns='http://www.w3.org/2000/svg' width='467' height='195' viewBox='0 0 467 195' fill='none' role='img'
   aria-labelledby='descId'>
   <title id='titleId'>数据卡片</title>
@@ -81,26 +63,24 @@ function render(items: RenderItemType[], theme = 'light') {
 </svg>
   `;
 }
-
-
-
+exports.RenderCard = RenderCard;
 /**
  * @des step2辅助函数：辅助渲染type = title | shape | textarea
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
-function renderType(data: RenderItemType) {
-  if (data.type === 'title') {
-    return `
+function renderType(data) {
+    if (data.type === 'title') {
+        return `
     <g data-testid='card-title' transform='translate(25, 35)'>
       <g transform='translate(0, 0)'>
         <text x='0' y='0' class='header' data-testid='header'>${data.title}</text>
       </g>
     </g>
-    `
-  }
-  if (data.type == "shape") {
-    return `
+    `;
+    }
+    if (data.type == "shape") {
+        return `
       <g data-testid='rank-circle' transform='translate(390.5, 47.5)'>
         <circle class='rank-circle-rim' cx='-10' cy='8' r='40' />
         <circle class='rank-circle' cx='-10' cy='8' r='40' />
@@ -111,22 +91,17 @@ function renderType(data: RenderItemType) {
           </text>
         </g>
       </g>
-    `
-  }
-  // 默认情况
-  return `
+    `;
+    }
+    // 默认情况
+    return `
   <g transform='translate(0, ${data.translate_y})'>
     <g class='stagger' style='animation-delay: 450ms' transform='translate(25, 0)'>
-      ${getIcon(data.icon)}
+      ${(0, icon_js_1.getIcon)(data.icon)}
       <text class='stat  bold' x='25' y='12.5'>${data.title}:</text>
       <text class='stat  bold' x='220' y='12.5' data-testid='undefined'>${data.text}</text>
     </g>
   </g>
   
-  `
-}
-
-
-export {
-  render
+  `;
 }

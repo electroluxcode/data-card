@@ -3,18 +3,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getJuejinInfo = void 0;
 const axios = require('axios');
 const cheerio = require('cheerio');
+const fs = require('fs');
 const axiosConfig = require('../common/utils').mobileConfig;
 async function getJuejinInfo(id) {
+    // 定义基本数据
     let result = {
+        // 名字
         user_name: 'username',
-        // 掘力值
+        // 掘力值(yes)
         power: 0,
-        // 关注人数
-        follower_count: 0,
-        // 总浏览量
+        // 文章数(yes)
+        post_article_count: 0,
+        // 总浏览量(yes)
         got_view_count: 0,
-        // 总点赞量
+        // 点赞(yes)
         got_digg_count: 0,
+        // 发布沸点
+        post_shortmsg_count: 1
     };
     try {
         // 两种数据 获取示例
@@ -23,21 +28,12 @@ async function getJuejinInfo(id) {
          */
         let res = await axios.get(`https://api.juejin.cn/user_api/v1/user/get?user_id=${id}`);
         result = Object.assign({}, result, res.data.data);
-        // console.log("提供了api接口:",result)
-        /**
-         * @des 第二种:解析html数据示例
-         */
-        // let test =  await axios.get(
-        //   `https://juejin.cn/user/${id}`, {
-        //     "Header": {
-        //     }
-        //   }
-        // )
-        // let $ = cheerio.load(test.data);
-        // $('.username .user-name').each((i, e) => {
-        //   result.name = $(e).text();
-        // });
-        // console.log("result.name",result)
+        // 方便调试
+        fs.writeFile('./api_juejin.json', JSON.stringify(result), err => {
+            if (err) {
+                console.error(err);
+            }
+        });
     }
     catch (e) {
         console.error(e);

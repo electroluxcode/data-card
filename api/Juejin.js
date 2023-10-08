@@ -1,34 +1,21 @@
 "use strict";
-const { getJuejinInfo } = require('../crawler/Juejin');
-const { renderJuejinCard } = require('../render/Juejin');
-const { cacheTime, cache } = require('../common/cache');
+const Juejin_js_1 = require("../model/Juejin.js");
+const Juejin_js_2 = require("../view/Juejin.js");
+const cache_js_1 = require("../common/cache.js");
 module.exports = async (req, res) => {
     const { id, theme, lang, raw } = req.query;
     let key = 'j' + id;
-    let data = cache.get(key);
-    // if (!data) {
-    //   // 用来获取数据
-    //   data = await getJuejinInfo(id);
-    //   cache.set(key, data);
-    // }
-    data = {
-        user_name: 'username',
-        // 掘力值
-        power: 0,
-        // 关注人数
-        follower_count: 0,
-        // 总浏览量
-        got_view_count: 0,
-        // 总点赞量
-        got_digg_count: 0,
-        description: "简介"
-    };
+    let data; // = cache.get(key);
+    if (!data) {
+        // 用来获取数据
+        data = await (0, Juejin_js_1.getJuejinInfo)(id);
+        cache_js_1.cache.set(key, data);
+    }
     data.theme = theme;
     if (raw) {
         return res.json(data);
     }
-    // 遍历数据 | 标准化数字
     res.setHeader('Content-Type', 'image/svg+xml');
-    res.setHeader('Cache-Control', `public, max-age=${cacheTime}`);
-    return res.send(renderJuejinCard(data, lang));
+    res.setHeader('Cache-Control', `public, max-age=${cache_js_1.cacheTime}`);
+    return res.send((0, Juejin_js_2.renderJuejinCard)(data, lang));
 };
