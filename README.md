@@ -856,7 +856,7 @@ export { renderJuejinCard };
 
 
 
-## 1.3 部署
+## 1.3 服务器部署
 
 
 
@@ -1125,6 +1125,17 @@ vercel login # 登录一下账号
 ```
 
 
+
+简单解释一下
+
+- dist/app.js 是入口文件
+- routes 下面是将匹配的路径进行重写
+
+
+
+
+
+然后 运行 npm install @vercel/node 安装一下依赖。最后执行
 
 ```shell
 # 在你的项目下面执行,如果没有报错。并且地址能够访问直接推送就好了

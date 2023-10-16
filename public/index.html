@@ -3,9 +3,9 @@
 <head>
   <meta charset='UTF-8' />
   <meta content='width=device-width, initial-scale=1' name='viewport' />
-  <title>网站数据卡片</title>
+  <title>数据卡片</title>
   <meta
-    content='在 README 中展示你在知乎，GitHub，B 站，LeetCode，掘金，CSDN，牛客等网站的数据，也可用于服务状态监控. Show your LeetCode & GitHub stats in GitHub Profile.'
+    content='在 README 中展示你在掘金等网站的数据，也可用于服务状态监控.'
     name='description'>
   <meta content='#ffffff' name='theme-color' />
   <link href='/static/bulma.min.css' rel='stylesheet'>
@@ -31,7 +31,7 @@
     <div class='container'>
       <div class='navbar-brand'>
         <a class='navbar-item is-size-5' href='/' style='font-weight: bold'>
-          网站数据卡片
+          数据卡片
         </a>
         <a aria-expanded='false' aria-label='menu' class='navbar-burger burger' data-target='mainNavbar'
            role='button'>
@@ -43,9 +43,8 @@
       <div class='navbar-menu' id='mainNavbar'>
         <div class='navbar-start'>
           <a class='navbar-item' href='/'> 首页 </a>
-          <a class='navbar-item' href='https://iamazing.cn/page/stats-cards'
-             target='_blank'> 帮助 </a>
-          <a class='navbar-item' href='/reward.html'> 赞赏 </a>
+         
+         
         </div>
       </div>
     </div>
@@ -68,10 +67,10 @@
   <div class='container'>
     <div class='normal-container'>
       <div class='notification'>
-        点击<strong><a href='https://iamazing.cn/page/stats-cards'
-                     target='_blank'>帮助</a></strong>查看具体的用法，本页面仅供展示。
-        项目地址：<a href='https://github.com/songquanpeng/stats-cards'
-                target='_blank'>测试</a>
+        点击<strong><a href='https://github.com/yilaikesi/data-card'
+                     target='_blank'>帮助</a></strong>查看如何构建与扩展你的卡片，本页面仅供展示。
+        项目地址：<a href='https://data-card-ten.vercel.app/api/juejin?id=3004311888208296&lang=zh-CN&theme=black'
+                target='_blank'>测试</a>。服务用vercel构建，可能需要翻墙
         <br />
       </div>
       <div class='card'>
@@ -82,52 +81,24 @@
         </header>
         <div class='card-content'>
           <div class='content'>
-            <div class='columns'>
+            
+         
+            <div class='column'>
+              
               <div class='column'>
-                <img alt='GitHub' src='/api/github?username=yilaikesi&theme=tokyonight&lang=zh-CN'>
+                <img alt='掘金' src='/api/juejin?id=3004311888208296&lang=zh-CN&theme=white'>
               </div>
               <div class='column'>
-                <img alt='知乎' src='/api/zhihu?username=excited&lang=zh-CN&theme=tokyonight'>
-              </div>
-            </div>
-            <div class='columns'>
-              <div class='column'>
-                <img alt='LeetCode' src='/api/leetcode/?username=electrolux&lang=zh-CN&theme=tokyonight'>
-              </div>
-              <div class='column'>
-                <img alt='力扣' src='/api/leetcode/?username=electrolux&cn=true&lang=zh-CN&theme=tokyonight'>
+                <img alt='掘金' src='/api/juejin?id=3004311888208296&lang=default&theme=black'>
               </div>
             </div>
-            <div class='columns'>
-              <div class='column'>
-                <img alt='B 站' src='/api/bilibili/?id=286773126&lang=zh-CN&theme=tokyonight'>
-              </div>
-              <div class='column'>
-                <img alt='掘金' src='/api/juejin?id=3004311888208296&lang=zh-CN&theme=tokyonight'>
-              </div>
-            </div>
-            <div class='columns'>
-              <div class='column'>
-                <img alt='CSDN' src='/api/csdn?id=vczh&lang=zh-CN&theme=tokyonight'>
-              </div>
-              <div class='column'>
-                <img alt='牛客' src='/api/nowcoder?id=6484283&lang=zh-CN&theme=tokyonight'>
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>
     </div>
   </div>
-  <footer class='footer' style='background-color: white'>
-    <div class='content has-text-centered'>
-      <p>
-        <a href='https://github.com/songquanpeng/stats-cards'>网站数据卡片</a> 由 <a href='https://github.com/songquanpeng'>JustSong</a>
-        构建，源代码遵循
-        <a href='https://opensource.org/licenses/mit-license.php'>MIT</a> 协议
-      </p>
-    </div>
-  </footer>
+ 
 </div>
 </body>
 </html>
